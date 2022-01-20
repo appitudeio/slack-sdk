@@ -20,8 +20,8 @@ class Client {
         $this->config = array(
             'token' => $config['token'],
             'username' => $config['username'],
-            'icon_url' => ((strpos($config['icon'], 'http') !== false) ? $config['icon'] : null),
-            'icon_emoji' => ((strpos($config['icon'], 'http') !== false) ? null : $config['icon']),
+            'icon_url' => (str_contains($config['icon'], 'http') ? $config['icon'] : null),
+            'icon_emoji' => (str_contains($config['icon'], 'http') ? null : $config['icon']),
             'parse' => $config['parse']
         );
         $this->client = new GuzzleClient(self::API_URL);
